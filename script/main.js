@@ -28,12 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fetch JSON data
     audioControl.addEventListener('click', () => {
         if (audio.paused) {
-            animationTimeline();
-            // audio.play();
+            // animationTimeline();
+            audio.play();
             audioIcon.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFl9A3rwXuPSSnC_VFJn0AlPPGe1BCg1gGWg&s'; // Update icon to 'Pause'
         } else {
-            animationTimeline();
-            // audio.pause();
+            // animationTimeline();
+            audio.pause();
             audioIcon.src = 'https://static-00.iconduck.com/assets.00/pause-button-icon-2048x2048-yv88vv4i.png'; // Update icon to 'Play'
         }
     });

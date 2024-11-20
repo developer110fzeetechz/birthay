@@ -21,7 +21,23 @@ window.addEventListener('load', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+    // animationTimeline();
+    const audio = document.querySelector('.song');
+    const audioControl = document.getElementById('audioControl');
+    const audioIcon = document.getElementById('audioIcon');
     // Fetch JSON data
+    audioControl.addEventListener('click', () => {
+        if (audio.paused) {
+            animationTimeline();
+            // audio.play();
+            audioIcon.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFl9A3rwXuPSSnC_VFJn0AlPPGe1BCg1gGWg&s'; // Update icon to 'Pause'
+        } else {
+            animationTimeline();
+            // audio.pause();
+            audioIcon.src = 'https://static-00.iconduck.com/assets.00/pause-button-icon-2048x2048-yv88vv4i.png'; // Update icon to 'Play'
+        }
+    });
+
     fetch('../jsonData.json')
       .then((response) => {
         // Ensure the response is okay
@@ -33,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .then((data) => {
         // Use the JSON data
         document.querySelector('.hbd-chatbox').innerHTML = data.messageData;
-        document.querySelector('#name').innerHTML = `Name: ${data.name}`;
+        document.querySelector('#name').innerHTML = `${data.name}`;
         // document.getElementById('message').innerText = data.message;
       })
       .catch((error) => {
